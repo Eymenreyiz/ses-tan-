@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sesli Not Defteri</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div id="auth-forms">
+            <div class="form-container" id="register-form">
+                <h2>Kayıt Ol</h2>
+                <form onsubmit="return register()">
+                    <input type="text" id="reg-username" placeholder="Kullanıcı Adı" required>
+                    <input type="email" id="reg-email" placeholder="E-posta" required>
+                    <input type="password" id="reg-password" placeholder="Şifre" required>
+                    <button type="submit">Kayıt Ol</button>
+                </form>
+                <p>Hesabınız var mı? <a href="#" onclick="toggleForms()">Giriş Yap</a></p>
+            </div>
+
+            <div class="form-container hidden" id="login-form">
+                <h2>Giriş Yap</h2>
+                <form onsubmit="return login()">
+                    <input type="email" id="login-email" placeholder="E-posta" required>
+                    <input type="password" id="login-password" placeholder="Şifre" required>
+                    <button type="submit">Giriş Yap</button>
+                </form>
+                <p>Hesabınız yok mu? <a href="#" onclick="toggleForms()">Kayıt Ol</a></p>
+            </div>
+        </div>
+
+        <div id="notepad" class="hidden">
+            <h2>Hoş geldin <span id="user-name"></span></h2>
+            <div class="notepad-container">
+                <div class="controls">
+                    <button id="startRecord" onclick="startRecording()">Kayıt Başlat</button>
+                    <button id="stopRecord" onclick="stopRecording()" disabled>Kayıt Durdur</button>
+                </div>
+                <textarea id="notes" placeholder="Notlarınız burada görünecek..."></textarea>
+                <div class="button-group">
+                    <button onclick="saveNotes()">Notları Kaydet</button>
+                    <button onclick="logout()" class="logout-btn">Çıkış Yap</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
